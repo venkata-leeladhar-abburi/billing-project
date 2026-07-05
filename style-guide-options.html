@@ -1,0 +1,1259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Building Project — Style Guide Options</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&family=Nunito:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Sora:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #0F0F0F;
+    font-family: 'Inter', sans-serif;
+    padding: 40px 24px;
+    color: #fff;
+  }
+
+  .page-title {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+  .page-title h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #666;
+    margin-bottom: 12px;
+  }
+  .page-title h2 {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 8px;
+  }
+  .page-title p {
+    font-size: 14px;
+    color: #555;
+  }
+
+  .options-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  /* ─── OPTION CARD WRAPPER ─── */
+  .option-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .option-label {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 16px;
+  }
+  .option-label .num {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: #444;
+    letter-spacing: 2px;
+  }
+  .option-label .name {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: #fff;
+  }
+  .option-label .tag {
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+  }
+
+  /* ─── MOCK APP SCREEN ─── */
+  .mock-phone {
+    width: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  /* ─── TOKENS ROW ─── */
+  .tokens-row {
+    display: flex;
+    gap: 8px;
+    margin-top: 14px;
+    flex-wrap: wrap;
+  }
+  .token {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    background: #1A1A1A;
+    border-radius: 8px;
+    border: 1px solid #252525;
+  }
+  .token-swatch {
+    width: 16px;
+    height: 16px;
+    border-radius: 4px;
+    flex-shrink: 0;
+  }
+  .token-info { display: flex; flex-direction: column; }
+  .token-name { font-size: 10px; color: #666; font-family: 'DM Mono', monospace; }
+  .token-hex  { font-size: 11px; color: #aaa; font-family: 'DM Mono', monospace; font-weight: 500; }
+
+  .font-row {
+    display: flex;
+    gap: 8px;
+    margin-top: 8px;
+    flex-wrap: wrap;
+  }
+  .font-chip {
+    padding: 6px 14px;
+    background: #1A1A1A;
+    border: 1px solid #252525;
+    border-radius: 8px;
+    font-size: 11px;
+    color: #777;
+    font-family: 'DM Mono', monospace;
+  }
+  .font-chip span {
+    color: #ccc;
+    font-weight: 500;
+  }
+
+  /* ══════════════════════════════════
+     OPTION 1 — CRIMSON PREMIUM (Dark)
+  ══════════════════════════════════ */
+  .opt1-screen {
+    background: #0D0D0D;
+    padding: 28px 24px;
+    min-height: 520px;
+  }
+  .opt1-topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 28px;
+  }
+  .opt1-topbar .greeting {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    color: #666;
+    font-weight: 400;
+  }
+  .opt1-topbar .shopname {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+    color: #fff;
+    font-weight: 400;
+  }
+  .opt1-avatar {
+    width: 38px; height: 38px;
+    background: #C0392B;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px; font-weight: 700; color: #fff;
+  }
+  .opt1-balance-card {
+    background: linear-gradient(135deg, #C0392B 0%, #7B241C 100%);
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .opt1-balance-card::after {
+    content: '';
+    position: absolute;
+    right: -20px; top: -30px;
+    width: 120px; height: 120px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 50%;
+  }
+  .opt1-balance-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    color: rgba(255,255,255,0.6);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .opt1-balance-amount {
+    font-family: 'DM Serif Display', serif;
+    font-size: 36px;
+    color: #fff;
+    margin-bottom: 4px;
+  }
+  .opt1-balance-sub {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+  }
+  .opt1-credits-row {
+    display: flex;
+    gap: 10px;
+    margin-top: 16px;
+  }
+  .opt1-credit-chip {
+    background: rgba(255,255,255,0.12);
+    border-radius: 8px;
+    padding: 6px 12px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    color: rgba(255,255,255,0.8);
+  }
+  .opt1-credit-chip strong { color: #D4A017; }
+  .opt1-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+  .opt1-action-btn {
+    background: #1A1A1A;
+    border: 1px solid #2A2A2A;
+    border-radius: 14px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    cursor: pointer;
+  }
+  .opt1-action-btn.primary {
+    background: #C0392B;
+    border-color: #C0392B;
+  }
+  .opt1-icon {
+    width: 32px; height: 32px;
+    background: rgba(192,57,43,0.2);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px;
+  }
+  .opt1-action-btn.primary .opt1-icon {
+    background: rgba(255,255,255,0.15);
+  }
+  .opt1-action-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: #fff;
+  }
+  .opt1-action-sub {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    color: #666;
+  }
+  .opt1-action-btn.primary .opt1-action-sub { color: rgba(255,255,255,0.6); }
+  .opt1-recent-title {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    color: #444;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 12px;
+  }
+  .opt1-bill-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #1E1E1E;
+  }
+  .opt1-bill-left { display: flex; gap: 12px; align-items: center; }
+  .opt1-bill-dot {
+    width: 8px; height: 8px;
+    background: #C0392B;
+    border-radius: 50%;
+    margin-top: 2px;
+  }
+  .opt1-bill-name {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px; font-weight: 500; color: #ddd;
+  }
+  .opt1-bill-time {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px; color: #555;
+  }
+  .opt1-bill-amount {
+    font-family: 'DM Mono', monospace;
+    font-size: 14px; font-weight: 500; color: #D4A017;
+  }
+
+  /* ══════════════════════════════════
+     OPTION 2 — CLEAN RED (Light/White)
+  ══════════════════════════════════ */
+  .opt2-screen {
+    background: #F6F6F6;
+    padding: 28px 24px;
+    min-height: 520px;
+  }
+  .opt2-topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+  }
+  .opt2-logo {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px; font-weight: 800;
+    color: #111;
+    letter-spacing: -0.5px;
+  }
+  .opt2-logo span { color: #E53935; }
+  .opt2-avatar {
+    width: 36px; height: 36px;
+    background: #E53935;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 700; color: #fff;
+    font-family: 'Inter', sans-serif;
+  }
+  .opt2-hero-card {
+    background: #fff;
+    border-radius: 18px;
+    padding: 22px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+  .opt2-hero-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px; font-weight: 500;
+    color: #999; letter-spacing: 0.5px;
+    margin-bottom: 4px;
+  }
+  .opt2-hero-val {
+    font-family: 'Inter', sans-serif;
+    font-size: 32px; font-weight: 800;
+    color: #111; letter-spacing: -1px;
+    margin-bottom: 14px;
+  }
+  .opt2-hero-val span { font-size: 18px; color: #999; font-weight: 400; }
+  .opt2-divider { height: 1px; background: #F0F0F0; margin-bottom: 14px; }
+  .opt2-stats-row { display: flex; gap: 20px; }
+  .opt2-stat-item {}
+  .opt2-stat-val {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px; font-weight: 700; color: #111;
+  }
+  .opt2-stat-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px; color: #999;
+  }
+  .opt2-cta-row {
+    display: flex; gap: 10px; margin-bottom: 16px;
+  }
+  .opt2-cta-primary {
+    flex: 1;
+    background: #E53935;
+    color: #fff;
+    border-radius: 14px;
+    padding: 16px;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px; font-weight: 600;
+    display: flex; flex-direction: column; gap: 4px;
+  }
+  .opt2-cta-primary .ico { font-size: 20px; margin-bottom: 4px; }
+  .opt2-cta-secondary {
+    flex: 1;
+    background: #fff;
+    border: 1.5px solid #E8E8E8;
+    color: #111;
+    border-radius: 14px;
+    padding: 16px;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px; font-weight: 600;
+    display: flex; flex-direction: column; gap: 4px;
+  }
+  .opt2-cta-secondary .ico { font-size: 20px; margin-bottom: 4px; color: #E53935; }
+  .opt2-recent-head {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px; font-weight: 700; color: #111;
+    margin-bottom: 12px;
+  }
+  .opt2-bill-row {
+    background: #fff;
+    border-radius: 12px;
+    padding: 14px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  }
+  .opt2-bill-name {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px; font-weight: 600; color: #111;
+  }
+  .opt2-bill-time {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px; color: #bbb;
+  }
+  .opt2-bill-amt {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px; font-weight: 700; color: #E53935;
+  }
+  .opt2-sent-badge {
+    font-size: 10px; color: #27AE60;
+    background: #EAFAF1;
+    padding: 2px 8px; border-radius: 20px;
+    font-family: 'Inter', sans-serif; font-weight: 500;
+  }
+
+  /* ══════════════════════════════════
+     OPTION 3 — BOLD & SIMPLE (Friendly)
+  ══════════════════════════════════ */
+  .opt3-screen {
+    background: #FFFFFF;
+    padding: 28px 20px;
+    min-height: 520px;
+  }
+  .opt3-topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 28px;
+  }
+  .opt3-greeting {
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px; color: #9E9E9E;
+  }
+  .opt3-shopname {
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px; font-weight: 700; color: #212121;
+    letter-spacing: -0.3px;
+  }
+  .opt3-avatar {
+    width: 42px; height: 42px;
+    background: #D32F2F;
+    border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+  }
+  .opt3-big-card {
+    background: #FFF5F5;
+    border-radius: 20px;
+    padding: 24px;
+    margin-bottom: 20px;
+    border: 1.5px solid #FFCDD2;
+  }
+  .opt3-card-label {
+    font-family: 'Nunito', sans-serif;
+    font-size: 13px; color: #D32F2F; font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .opt3-card-val {
+    font-family: 'Poppins', sans-serif;
+    font-size: 38px; font-weight: 800; color: #212121;
+    letter-spacing: -1px; margin-bottom: 8px;
+  }
+  .opt3-card-val span { font-size: 20px; color: #757575; font-weight: 400; }
+  .opt3-chip-row { display: flex; gap: 8px; flex-wrap: wrap; }
+  .opt3-chip {
+    background: #fff;
+    border: 1.5px solid #FFCDD2;
+    border-radius: 20px;
+    padding: 5px 12px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 12px; font-weight: 600; color: #D32F2F;
+  }
+  .opt3-btn-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  .opt3-btn-main {
+    background: #D32F2F;
+    border-radius: 16px;
+    padding: 18px 16px;
+    display: flex; flex-direction: column; gap: 6px;
+    font-family: 'Poppins', sans-serif;
+  }
+  .opt3-btn-main .ico { font-size: 24px; }
+  .opt3-btn-main .lbl { font-size: 13px; font-weight: 700; color: #fff; }
+  .opt3-btn-main .sub { font-size: 10px; color: rgba(255,255,255,0.65); }
+  .opt3-btn-sec {
+    background: #F5F5F5;
+    border-radius: 16px;
+    padding: 18px 16px;
+    display: flex; flex-direction: column; gap: 6px;
+    font-family: 'Poppins', sans-serif;
+  }
+  .opt3-btn-sec .ico { font-size: 24px; }
+  .opt3-btn-sec .lbl { font-size: 13px; font-weight: 700; color: #212121; }
+  .opt3-btn-sec .sub { font-size: 10px; color: #9E9E9E; }
+  .opt3-recents-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px; font-weight: 700; color: #212121;
+    margin-bottom: 12px;
+  }
+  .opt3-bill-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #FAFAFA;
+    border-radius: 14px;
+    padding: 14px 16px;
+    margin-bottom: 10px;
+  }
+  .opt3-bill-icon {
+    width: 36px; height: 36px;
+    background: #FFEBEE;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; margin-right: 12px;
+  }
+  .opt3-bill-name {
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px; font-weight: 600; color: #212121;
+  }
+  .opt3-bill-time {
+    font-family: 'Nunito', sans-serif;
+    font-size: 11px; color: #BDBDBD;
+  }
+  .opt3-bill-amt {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px; font-weight: 700; color: #D32F2F;
+  }
+
+  /* ══════════════════════════════════
+     OPTION 4 — MINIMAL EDGE (Sora)
+  ══════════════════════════════════ */
+  .opt4-screen {
+    background: #FAFAFA;
+    padding: 28px 24px;
+    min-height: 520px;
+  }
+  .opt4-topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+  }
+  .opt4-menu { font-size: 20px; color: #111; cursor: pointer; }
+  .opt4-logo {
+    font-family: 'Sora', sans-serif;
+    font-size: 15px; font-weight: 700; color: #111;
+    letter-spacing: -0.5px;
+  }
+  .opt4-bell { font-size: 18px; color: #111; }
+  .opt4-hero {
+    margin-bottom: 28px;
+  }
+  .opt4-hero-label {
+    font-family: 'Sora', sans-serif;
+    font-size: 11px; font-weight: 400; color: #999;
+    letter-spacing: 2px; text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .opt4-hero-val {
+    font-family: 'Sora', sans-serif;
+    font-size: 42px; font-weight: 700; color: #111;
+    letter-spacing: -2px; line-height: 1;
+    margin-bottom: 6px;
+  }
+  .opt4-hero-val sup { font-size: 18px; color: #B71C1C; vertical-align: super; }
+  .opt4-hero-sub {
+    font-family: 'Sora', sans-serif;
+    font-size: 12px; color: #999;
+  }
+  .opt4-rule { height: 1px; background: #E8E8E8; margin: 24px 0; }
+  .opt4-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 28px;
+  }
+  .opt4-stat-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 14px 12px;
+    border: 1px solid #EBEBEB;
+  }
+  .opt4-stat-card.red-card {
+    background: #B71C1C;
+    border-color: #B71C1C;
+  }
+  .opt4-stat-num {
+    font-family: 'Sora', sans-serif;
+    font-size: 20px; font-weight: 700; color: #111;
+    margin-bottom: 2px;
+  }
+  .opt4-stat-card.red-card .opt4-stat-num { color: #fff; }
+  .opt4-stat-lbl {
+    font-family: 'Sora', sans-serif;
+    font-size: 10px; color: #bbb;
+  }
+  .opt4-stat-card.red-card .opt4-stat-lbl { color: rgba(255,255,255,0.6); }
+  .opt4-new-bill-btn {
+    background: #111;
+    border-radius: 14px;
+    padding: 18px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+  }
+  .opt4-btn-text {
+    font-family: 'Sora', sans-serif;
+    font-size: 14px; font-weight: 600; color: #fff;
+  }
+  .opt4-btn-sub {
+    font-family: 'Sora', sans-serif;
+    font-size: 11px; color: #666;
+  }
+  .opt4-btn-arrow {
+    width: 32px; height: 32px;
+    background: #B71C1C;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; color: #fff;
+  }
+  .opt4-list-title {
+    font-family: 'Sora', sans-serif;
+    font-size: 11px; font-weight: 600; color: #999;
+    letter-spacing: 2px; text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .opt4-list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #F0F0F0;
+  }
+  .opt4-list-name {
+    font-family: 'Sora', sans-serif;
+    font-size: 13px; font-weight: 500; color: #222;
+  }
+  .opt4-list-time {
+    font-family: 'Sora', sans-serif;
+    font-size: 10px; color: #ccc;
+  }
+  .opt4-list-amt {
+    font-family: 'Sora', sans-serif;
+    font-size: 13px; font-weight: 600; color: #B71C1C;
+  }
+
+  /* ══════════════════════════════════
+     OPTION 5 — WARM INDIAN PREMIUM
+  ══════════════════════════════════ */
+  .opt5-screen {
+    background: #fff;
+    padding: 0;
+    min-height: 520px;
+    overflow: hidden;
+  }
+  .opt5-header {
+    background: #7B0D0D;
+    padding: 28px 24px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .opt5-header::before {
+    content: '';
+    position: absolute;
+    right: -40px; bottom: -40px;
+    width: 180px; height: 180px;
+    background: rgba(255,255,255,0.04);
+    border-radius: 50%;
+  }
+  .opt5-header::after {
+    content: '';
+    position: absolute;
+    right: 20px; top: -60px;
+    width: 140px; height: 140px;
+    background: rgba(255,255,255,0.03);
+    border-radius: 50%;
+  }
+  .opt5-toprow {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 24px;
+  }
+  .opt5-shop {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 11px; color: rgba(255,255,255,0.5);
+    letter-spacing: 1px; text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .opt5-shopname {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 18px; font-weight: 800; color: #fff;
+    letter-spacing: -0.3px;
+  }
+  .opt5-av {
+    width: 38px; height: 38px;
+    background: rgba(255,255,255,0.12);
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px;
+    border: 1px solid rgba(255,255,255,0.15);
+  }
+  .opt5-balance-label {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 11px; color: rgba(255,255,255,0.5);
+    margin-bottom: 4px;
+  }
+  .opt5-balance-val {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 38px; font-weight: 800; color: #fff;
+    letter-spacing: -1.5px;
+  }
+  .opt5-body {
+    background: #fff;
+    border-radius: 24px 24px 0 0;
+    margin-top: -20px;
+    position: relative;
+    z-index: 2;
+    padding: 24px 20px;
+  }
+  .opt5-quick-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+  .opt5-quick-btn {
+    border-radius: 16px;
+    padding: 16px;
+    display: flex; flex-direction: column; gap: 6px;
+  }
+  .opt5-quick-btn.main {
+    background: #7B0D0D;
+  }
+  .opt5-quick-btn.sec {
+    background: #FFF0F0;
+    border: 1.5px solid #FFD6D6;
+  }
+  .opt5-quick-ico { font-size: 22px; }
+  .opt5-quick-lbl {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 13px; font-weight: 700;
+  }
+  .opt5-quick-btn.main .opt5-quick-lbl { color: #fff; }
+  .opt5-quick-btn.sec .opt5-quick-lbl { color: #7B0D0D; }
+  .opt5-quick-sub {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 10px;
+  }
+  .opt5-quick-btn.main .opt5-quick-sub { color: rgba(255,255,255,0.5); }
+  .opt5-quick-btn.sec .opt5-quick-sub { color: #C0A0A0; }
+  .opt5-section-title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 13px; font-weight: 700; color: #111;
+    margin-bottom: 14px;
+    display: flex; justify-content: space-between;
+    align-items: center;
+  }
+  .opt5-see-all {
+    font-size: 11px; color: #7B0D0D; font-weight: 500;
+  }
+  .opt5-list-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid #F5F5F5;
+  }
+  .opt5-list-ic {
+    width: 38px; height: 38px;
+    background: #FFF0F0;
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; flex-shrink: 0;
+  }
+  .opt5-list-name {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 13px; font-weight: 600; color: #111;
+  }
+  .opt5-list-time {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 11px; color: #BDBDBD;
+  }
+  .opt5-list-amt {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 14px; font-weight: 700; color: #7B0D0D;
+    margin-left: auto;
+  }
+
+  /* ─── BOTTOM BADGE ROW ─── */
+  .badge-row {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+  }
+  .badge {
+    font-size: 11px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-family: 'DM Mono', monospace;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+  }
+  .badge-green  { background: #0D2B1A; color: #2ECC71; }
+  .badge-yellow { background: #2B230D; color: #F39C12; }
+  .badge-blue   { background: #0D1A2B; color: #3498DB; }
+  .badge-red    { background: #2B0D0D; color: #E74C3C; }
+
+  /* recommended star */
+  .rec-star {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: #C0392B;
+    color: #fff;
+    font-size: 10px;
+    font-family: 'DM Mono', monospace;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+  }
+</style>
+</head>
+<body>
+
+<div class="page-title">
+  <h1>Building Project · SaaS App</h1>
+  <h2>Style Guide Options</h2>
+  <p>5 distinct visual directions — choose what feels right</p>
+</div>
+
+<div class="options-grid">
+
+  <!-- ═══════════════════════════════════════
+       OPTION 1 — CRIMSON PREMIUM
+  ════════════════════════════════════════ -->
+  <div class="option-wrap">
+    <div class="option-label">
+      <span class="num">01 /</span>
+      <span class="name">Crimson Premium</span>
+      <span class="tag" style="background:#1E0A0A;color:#C0392B;border:1px solid #3D1010;">Dark · Gold Accent</span>
+    </div>
+
+    <div class="mock-phone">
+      <div class="opt1-screen">
+        <div class="opt1-topbar">
+          <div>
+            <div class="opt1-topbar greeting">Good morning,</div>
+            <div class="opt1-topbar shopname">Raju Silks</div>
+          </div>
+          <div class="opt1-avatar">RS</div>
+        </div>
+
+        <div class="opt1-balance-card">
+          <div class="opt1-balance-label">Today's Bills Sent</div>
+          <div class="opt1-balance-amount">₹12,400</div>
+          <div class="opt1-balance-sub">8 bills · Last sent 2 min ago</div>
+          <div class="opt1-credits-row">
+            <div class="opt1-credit-chip">Bills: <strong>82</strong> left</div>
+            <div class="opt1-credit-chip">Msgs: <strong>240</strong> left</div>
+          </div>
+        </div>
+
+        <div class="opt1-actions">
+          <div class="opt1-action-btn primary">
+            <div class="opt1-icon">📄</div>
+            <div class="opt1-action-label">New Bill</div>
+            <div class="opt1-action-sub">Send PDF instantly</div>
+          </div>
+          <div class="opt1-action-btn">
+            <div class="opt1-icon">📢</div>
+            <div class="opt1-action-label">Bulk Message</div>
+            <div class="opt1-action-sub">Send to all customers</div>
+          </div>
+          <div class="opt1-action-btn">
+            <div class="opt1-icon">👥</div>
+            <div class="opt1-action-label">Customers</div>
+            <div class="opt1-action-sub">128 contacts</div>
+          </div>
+          <div class="opt1-action-btn">
+            <div class="opt1-icon">🧾</div>
+            <div class="opt1-action-label">Bill History</div>
+            <div class="opt1-action-sub">View all bills</div>
+          </div>
+        </div>
+
+        <div class="opt1-recent-title">Recent Bills</div>
+        <div class="opt1-bill-item">
+          <div class="opt1-bill-left"><div class="opt1-bill-dot"></div><div><div class="opt1-bill-name">Suresh Kumar</div><div class="opt1-bill-time">2 min ago</div></div></div>
+          <div class="opt1-bill-amount">₹2,400</div>
+        </div>
+        <div class="opt1-bill-item">
+          <div class="opt1-bill-left"><div class="opt1-bill-dot"></div><div><div class="opt1-bill-name">Lakshmi Devi</div><div class="opt1-bill-time">1 hr ago</div></div></div>
+          <div class="opt1-bill-amount">₹5,800</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tokens-row">
+      <div class="token"><div class="token-swatch" style="background:#0D0D0D;border:1px solid #333"></div><div class="token-info"><span class="token-name">Background</span><span class="token-hex">#0D0D0D</span></div></div>
+      <div class="token"><div class="token-swatch" style="background:#C0392B"></div><div class="token-info"><span class="token-name">Primary Red</span><span class="token-hex">#C0392B</span></div></div>
+      <div class="token"><div class="token-swatch" style="background:#D4A017"></div><div class="token-info"><span class="token-name">Gold Accent</span><span class="token-hex">#D4A017</span></div></div>
+      <div class="token"><div class="token-swatch" style="background:#1A1A1A;border:1px solid #333"></div><div class="token-info"><span class="token-name">Surface</span><span class="token-hex">#1A1A1A</span></div></div>
+    </div>
+    <div class="font-row">
+      <div class="font-chip">Heading: <span style="font-family:'DM Serif Display',serif">DM Serif Display</span></div>
+      <div class="font-chip">Body: <span style="font-family:'DM Sans',sans-serif">DM Sans</span></div>
+      <div class="font-chip">Numbers: <span style="font-family:'DM Mono',monospace">DM Mono</span></div>
+    </div>
+    <div class="badge-row">
+      <span class="badge badge-green">✓ Very premium feel</span>
+      <span class="badge badge-yellow">⚠ Dark UI — shopkeepers may find unfamiliar</span>
+      <span class="badge badge-blue">✓ CRED-inspired</span>
+    </div>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════
+       OPTION 2 — CLEAN RED
+  ════════════════════════════════════════ -->
+  <div class="option-wrap">
+    <div class="option-label">
+      <span class="num">02 /</span>
+      <span class="name">Clean Red</span>
+      <span class="tag" style="background:#1A0A0A;color:#E53935;border:1px solid #3D1010;">White · Stripe-level</span>
+    </div>
+
+    <div class="mock-phone">
+      <div class="opt2-screen">
+        <div class="opt2-topbar">
+          <div class="opt2-logo">Bill<span>Sync</span></div>
+          <div class="opt2-avatar">RJ</div>
+        </div>
+
+        <div class="opt2-hero-card">
+          <div class="opt2-hero-label">TODAY'S TOTAL</div>
+          <div class="opt2-hero-val">₹12,400 <span>billed</span></div>
+          <div class="opt2-divider"></div>
+          <div class="opt2-stats-row">
+            <div class="opt2-stat-item"><div class="opt2-stat-val">8</div><div class="opt2-stat-label">Bills Sent</div></div>
+            <div class="opt2-stat-item"><div class="opt2-stat-val">82</div><div class="opt2-stat-label">Bill Credits</div></div>
+            <div class="opt2-stat-item"><div class="opt2-stat-val">240</div><div class="opt2-stat-label">Msg Credits</div></div>
+          </div>
+        </div>
+
+        <div class="opt2-cta-row">
+          <div class="opt2-cta-primary">
+            <div class="ico">📄</div>
+            <div>New Bill</div>
+          </div>
+          <div class="opt2-cta-secondary">
+            <div class="ico">📢</div>
+            <div>Bulk Message</div>
+          </div>
+        </div>
+
+        <div class="opt2-recent-head">Recent Bills</div>
+        <div class="opt2-bill-row">
+          <div><div class="opt2-bill-name">Suresh Kumar</div><div class="opt2-bill-time">2 min ago</div></div>
+          <div style="text-align:right"><div class="opt2-bill-amt">₹2,400</div><div class="opt2-sent-badge">Sent ✓</div></div>
+        </div>
+        <div class="opt2-bill-row">
+          <div><div class="opt2-bill-name">Lakshmi Devi</div><div class="opt2-bill-time">1 hr ago</div></div>
+          <div style="text-align:right"><div class="opt2-bill-amt">₹5,800</div><div class="opt2-sent-badge">Sent ✓</div></div>
+        </div>
+        <div class="opt2-bill-row">
+          <div><div class="opt2-bill-name">Venkat Rao</div><div class="opt2-bill-time">3 hr ago</div></div>
+          <div style="text-align:right"><div class="opt2-bill-amt">₹900</div><div class="opt2-sent-badge">Sent ✓</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tokens-row">
+      <div class="token"><div class="token-swatch" style="background:#FFFFFF;border:1px solid #333"></div><div class="token-info"><span class="token-name">Background</span><span class="token-hex">#FFFFFF</span></div></div>
+      <div class="token"><div class="token-swatch" style="background:#E53935"></div><div class="token-info"><span class="token-name">Primary Red</span><span class="token-hex">#E53935</span></div></div>
+      <div class="token"><div class="token-swatch" style="background:#111111"></div><div class="token-info"><span class="token-name">Dark Text</span><span class="token-hex">#111111</span></div></div>
+      <div class="token"><div class="token-swatch" style="background:#F8F8F8;border:1px solid #333"></div><div class="token-info"><span class="token-name">Surface</span><span class="token-hex">#F8F8F8</span></div></div>
+    </div>
+    <div class="font-row">
+      <div class="font-chip">All text: <span style="font-family:'Inter',sans-serif">Inter</span></div>
+      <div class="font-chip">Weights: 400 · 600 · 800</div>
+    </div>
+    <div class="badge-row">
+      <span class="badge badge-green">✓ Universal, familiar</span>
+      <span class="badge badge-green">✓ Easy for shopkeepers</span>
+      <span class="badge badge-blue">✓ Razorpay/Stripe level trust</span>
+      <span class="badge badge-yellow">⚠ Less exciting visually</span>
+    </div>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════
+       OPTION 3 — BOLD & SIMPLE
+  ════════════════════════════════════════ -->
+  <div class="option-wrap">
+    <div class="option-label">
+      <span class="num">03 /</span>
+      <span class="name">Bold & Simple</span>
+      <span class="tag" style="background:#1A0A0A;color:#EF5350;border:1px solid #3D1010;">Friendly · Rounded</span>
+    </div>
+
+    <div class="mock-phone">
+      <div class="opt3-screen">
+        <div class="opt3-topbar">
+          <div>
+            <div class="opt3-greeting">Good morning 👋</div>
+            <div class="opt3-shopname">Raju Silks</div>
+          </div>
+          <div class="opt3-avatar">🏪</div>
+        </div>
+
+        <div class="opt3-big-card">
+          <div class="opt3-card-label">Today's Total</div>
+          <div class="opt3-card-val">₹12,400</div>
+          <div class="opt3-chip-row">
+            <div class="opt3-chip">8 Bills Sent</div>
+            <div class="opt3-chip">82 Credits Left</div>
+          </div>
+        </div>
+
+        <div class="opt3-btn-row">
+          <div class="opt3-btn-main">
+            <div class="ico">📄</div>
+            <div class="lbl">New Bill</div>
+            <div class="sub">Send PDF on WhatsApp</div>
+          </div>
+          <div class="opt3-btn-sec">
+            <div class="ico" style="color:#D32F2F">📢</div>
+            <div class="lbl">Bulk Message</div>
+            <div class="sub">240 credits available</div>
+          </div>
+        </div>
+
+        <div class="opt3-recents-title">Recent Bills</div>
+        <div class="opt3-bill-row">
+          <div class="opt3-bill-icon">🧾</div>
+          <div>
+            <div class="opt3-bill-name">Suresh Kumar</div>
+            <div class="opt3-bill-time">2 min ago · Sent ✓</div>
+          </div>
+          <div class="opt3-bill-amt">₹2,400</div>
+        </div>
+        <div class="opt3-bill-row">
+          <div class="opt3-bill-icon">🧾</div>
+          <div>
+            <div class="opt3-bill-name">Lakshmi Devi</div>
+            <div class="opt3-bill-time">1 hr ago · Sent ✓</div>
+          </div>
+          <div class="opt3-bill-amt">₹5,800</div>
+        </div>
+        <div class="opt3-bill-row">
+          <div class="opt3-bill-icon">🧾</div>
+          <div>
+            <div class="opt3-bill-name">Venkat Rao</div>
+            <div class="opt3-bill-time">3 hr ago · Sent ✓</div>
+          </div>
+          <div class="opt3-bill-amt">₹900</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tokens-row">
+      <div class="token"><div class="token-swatch" style="background:#FFFFFF;border:1px solid #333"></div><div class="token-info"><span class="token-name">Background</span><span class="token-hex">#FFFFFF</span></div></div>
+      <div class="token"><div class="token-swatch" style="background:#D32F2F"></div><div class="token-info"><span class="token-name">Primary Red</span><span class="token-hex">#D32F2F</span></div></div>
+      <div class="token"><div class="token-swatch" style="background:#FFF5F5"></div><div class="token-info"><span class="token-name">Soft Red Card</span><span class="token-hex">#FFF5F5</span></div></div>
+      <div class="token"><div class="token-swatch" style="background:#212121"></div><div class="token-info"><span class="token-name">Dark Text</span><span class="token-hex">#212121</span></div></div>
+    </div>
+    <div class="font-row">
+      <div class="font-chip">Heading: <span style="font-family:'Poppins',sans-serif">Poppins</span></div>
+      <div class="font-chip">Body: <span style="font-family:'Nunito',sans-serif">Nunito</span></div>
+    </div>
+    <div class="badge-row">
+      <span class="badge badge-green">✓ Most shopkeeper-friendly</span>
+      <span class="badge badge-green">✓ Readable for all ages</span>
+      <span class="badge badge-yellow">⚠ Less premium than options 1 & 4</span>
+    </div>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════
+       OPTION 4 — MINIMAL EDGE
+  ════════════════════════════════════════ -->
+  <div class="option-wrap">
+    <div class="option-label">
+      <span class="num">04 /</span>
+      <span class="name">Minimal Edge</span>
+      <span class="tag" style="background:#0D0D1A;color:#B71C1C;border:1px solid #1A1A3D;">Sharp · Editorial</span>
+      <span class="rec-star">⭐ Recommended</span>
+    </div>
+
+    <div class="mock-phone">
+      <div class="opt4-screen">
+        <div class="opt4-topbar">
+          <div class="opt4-menu">☰</div>
+          <div class="opt4-logo">BillSync</div>
+          <div class="opt4-bell">🔔</div>
+        </div>
+
+        <div class="opt4-hero">
+          <div class="opt4-hero-label">Today's Revenue</div>
+          <div class="opt4-hero-val"><sup>₹</sup>12,400</div>
+          <div class="opt4-hero-sub">Raju Silks · 8 bills sent today</div>
+        </div>
+
+        <div class="opt4-grid">
+          <div class="opt4-stat-card red-card">
+            <div class="opt4-stat-num">82</div>
+            <div class="opt4-stat-lbl">Bill Credits</div>
+          </div>
+          <div class="opt4-stat-card">
+            <div class="opt4-stat-num">240</div>
+            <div class="opt4-stat-lbl">Msg Credits</div>
+          </div>
+          <div class="opt4-stat-card">
+            <div class="opt4-stat-num">128</div>
+            <div class="opt4-stat-lbl">Customers</div>
+          </div>
+        </div>
+
+        <div class="opt4-new-bill-btn">
+          <div>
+            <div class="opt4-btn-text">Send New Bill</div>
+            <div class="opt4-btn-sub">PDF via WhatsApp</div>
+          </div>
+          <div class="opt4-btn-arrow">→</div>
+        </div>
+
+        <div class="opt4-list-title">Recent Transactions</div>
+        <div class="opt4-list-item">
+          <div><div class="opt4-list-name">Suresh Kumar</div><div class="opt4-list-time">2 min ago</div></div>
+          <div class="opt4-list-amt">₹2,400</div>
+        </div>
+        <div class="opt4-list-item">
+          <div><div class="opt4-list-name">Lakshmi Devi</div><div class="opt4-list-time">1 hr ago</div></div>
+          <div class="opt4-list-amt">₹5,800</div>
+        </div>
+        <div class="opt4-list-item">
+          <div><div class="opt4-list-name">Venkat Rao</div><div class="opt4-list-time">3 hr ago</div></div>
+          <div class="opt4-list-amt">₹900</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tokens-row">
+      <div class="token"><div class="token-swatch" style="background:#FAFAFA;border:1px solid #333"></div><div class="token-info"><span class="token-name">Background</span><span class="token-hex">#FAFAFA</span></div></div>
+      <div class="token"><div class="token-swatch" style="background:#B71C1C"></div><div class="token-info"><span class="token-name">Primary Red</span><span class="token-hex">#B71C1C</span></div></div>
+      <div class="token"><div class="token-swatch" style="background:#111111"></div><div class="token-info"><span class="token-name">Dark</span><span class="token-hex">#111111</span></div></div>
+      <div class="token"><div class="token-swatch" style="background:#FFFFFF;border:1px solid #333"></div><div class="token-info"><span class="token-name">Card</span><span class="token-hex">#FFFFFF</span></div></div>
+    </div>
+    <div class="font-row">
+      <div class="font-chip">All text: <span style="font-family:'Sora',sans-serif">Sora</span></div>
+      <div class="font-chip">Weights: 300 · 500 · 700</div>
+    </div>
+    <div class="badge-row">
+      <span class="badge badge-green">✓ Ultra-premium yet simple</span>
+      <span class="badge badge-green">✓ Light bg = easy for shopkeepers</span>
+      <span class="badge badge-green">✓ Strong typographic personality</span>
+      <span class="badge badge-blue">✓ Best balance of all goals</span>
+    </div>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════
+       OPTION 5 — WARM INDIAN PREMIUM
+  ════════════════════════════════════════ -->
+  <div class="option-wrap">
+    <div class="option-label">
+      <span class="num">05 /</span>
+      <span class="name">Warm Indian Premium</span>
+      <span class="tag" style="background:#1A0505;color:#EF9A9A;border:1px solid #3D1010;">Deep Red · Plus Jakarta</span>
+    </div>
+
+    <div class="mock-phone">
+      <div class="opt5-screen">
+        <div class="opt5-header">
+          <div class="opt5-toprow">
+            <div>
+              <div class="opt5-shop">Your Shop</div>
+              <div class="opt5-shopname">Raju Silks</div>
+            </div>
+            <div class="opt5-av">🏪</div>
+          </div>
+          <div class="opt5-balance-label">Today's Revenue</div>
+          <div class="opt5-balance-val">₹12,400</div>
+        </div>
+
+        <div class="opt5-body">
+          <div class="opt5-quick-row">
+            <div class="opt5-quick-btn main">
+              <div class="opt5-quick-ico">📄</div>
+              <div class="opt5-quick-lbl">New Bill</div>
+              <div class="opt5-quick-sub">Send PDF on WhatsApp</div>
+            </div>
+            <div class="opt5-quick-btn sec">
+              <div class="opt5-quick-ico">📢</div>
+              <div class="opt5-quick-lbl">Bulk Message</div>
+              <div class="opt5-quick-sub">240 credits left</div>
+            </div>
+          </div>
+
+          <div class="opt5-section-title">
+            <span>Recent Bills</span>
+            <span class="opt5-see-all">See all →</span>
+          </div>
+          <div class="opt5-list-item">
+            <div class="opt5-list-ic">🧾</div>
+            <div><div class="opt5-list-name">Suresh Kumar</div><div class="opt5-list-time">2 min ago</div></div>
+            <div class="opt5-list-amt">₹2,400</div>
+          </div>
+          <div class="opt5-list-item">
+            <div class="opt5-list-ic">🧾</div>
+            <div><div class="opt5-list-name">Lakshmi Devi</div><div class="opt5-list-time">1 hr ago</div></div>
+            <div class="opt5-list-amt">₹5,800</div>
+          </div>
+          <div class="opt5-list-item">
+            <div class="opt5-list-ic">🧾</div>
+            <div><div class="opt5-list-name">Venkat Rao</div><div class="opt5-list-time">3 hr ago</div></div>
+            <div class="opt5-list-amt">₹900</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tokens-row">
+      <div class="token"><div class="token-swatch" style="background:#7B0D0D"></div><div class="token-info"><span class="token-name">Header Red</span><span class="token-hex">#7B0D0D</span></div></div>
+      <div class="token"><div class="token-swatch" style="background:#FFFFFF;border:1px solid #333"></div><div class="token-info"><span class="token-name">Body BG</span><span class="token-hex">#FFFFFF</span></div></div>
+      <div class="token"><div class="token-swatch" style="background:#FFF0F0"></div><div class="token-info"><span class="token-name">Soft Card</span><span class="token-hex">#FFF0F0</span></div></div>
+      <div class="token"><div class="token-swatch" style="background:#111111"></div><div class="token-info"><span class="token-name">Dark Text</span><span class="token-hex">#111111</span></div></div>
+    </div>
+    <div class="font-row">
+      <div class="font-chip">All text: <span style="font-family:'Plus Jakarta Sans',sans-serif">Plus Jakarta Sans</span></div>
+      <div class="font-chip">Weights: 400 · 600 · 800</div>
+    </div>
+    <div class="badge-row">
+      <span class="badge badge-green">✓ Feels very Indian & warm</span>
+      <span class="badge badge-green">✓ Header draws attention instantly</span>
+      <span class="badge badge-blue">✓ Good for Andhra/Telangana market</span>
+      <span class="badge badge-yellow">⚠ Header-heavy layout needs careful balance</span>
+    </div>
+  </div>
+
+</div>
+
+<div style="text-align:center;margin-top:60px;padding-bottom:40px;">
+  <p style="font-family:'DM Mono',monospace;font-size:11px;color:#333;letter-spacing:2px;">BUILDING PROJECT · ONE STOP SOLUTIONS · 2026</p>
+</div>
+
+</body>
+</html>
