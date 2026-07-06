@@ -50,6 +50,7 @@ dependencies:
   cached_network_image: ^3.3.0
   pdf: ^3.10.0
   intl: ^0.20.3
+  url_launcher: ^6.3.0
 
 dev_dependencies:
   flutter_test:
@@ -113,29 +114,26 @@ flutter:
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
 
-  # NOTE: font families (Inter, PlayfairDisplay, DMMono) are declared per
-  # DESIGN.md/CLAUDE.md but the actual .ttf files have not been added to
-  # assets/fonts/ yet. Uncomment and point at real files once they exist —
-  # referencing missing font files fails compilation.
-  # fonts:
-  #   - family: Inter
-  #     fonts:
-  #       - asset: assets/fonts/Inter-Regular.ttf
-  #       - asset: assets/fonts/Inter-Medium.ttf
-  #         weight: 500
-  #       - asset: assets/fonts/Inter-SemiBold.ttf
-  #         weight: 600
-  #       - asset: assets/fonts/Inter-Bold.ttf
-  #         weight: 700
-  #   - family: PlayfairDisplay
-  #     fonts:
-  #       - asset: assets/fonts/PlayfairDisplay-Regular.ttf
-  #       - asset: assets/fonts/PlayfairDisplay-Bold.ttf
-  #         weight: 700
-  #       - asset: assets/fonts/PlayfairDisplay-Italic.ttf
-  #         style: italic
-  #   - family: DMMono
-  #     fonts:
-  #       - asset: assets/fonts/DMMono-Regular.ttf
-  #       - asset: assets/fonts/DMMono-Medium.ttf
-  #         weight: 500
+  fonts:
+    - family: Inter
+      fonts:
+        - asset: assets/fonts/Inter/static/Inter_18pt-Regular.ttf
+        - asset: assets/fonts/Inter/static/Inter_18pt-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Inter/static/Inter_18pt-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/Inter/static/Inter_18pt-Bold.ttf
+          weight: 700
+    - family: PlayfairDisplay
+      fonts:
+        - asset: assets/fonts/Playfair_Display/static/PlayfairDisplay-Regular.ttf
+        - asset: assets/fonts/Playfair_Display/static/PlayfairDisplay-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Playfair_Display/static/PlayfairDisplay-BoldItalic.ttf
+          weight: 700
+          style: italic
+    - family: DMMono
+      fonts:
+        - asset: assets/fonts/DM_Mono/DMMono-Regular.ttf
+        - asset: assets/fonts/DM_Mono/DMMono-Medium.ttf
+          weight: 500

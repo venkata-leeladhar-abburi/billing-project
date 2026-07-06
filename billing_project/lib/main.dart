@@ -13,9 +13,15 @@ Future<void> main() async {
 
   await Supabase.initialize(
     url: Env.supabaseUrl,
-    anonKey: Env.supabaseAnonKey,
+    publishableKey: Env.supabaseAnonKey,
   );
-  await Firebase.initializeApp();
+
+  try {
+    await Firebase.initializeApp();
+  } catch (_) {
+    // Firebase project not set up yet (Phase 0 pending) — push notifications
+    // won't work, but the rest of the mock-data app should still run.
+  }
 
   runApp(const ProviderScope(child: BuildingProjectApp()));
 }

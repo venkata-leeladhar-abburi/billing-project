@@ -53,6 +53,13 @@ class AppColors {
     stops: [0.0, 0.6, 1.0],
   ); // super admin headers
 
+  static const kGradientOnboarding = RadialGradient(
+    center: Alignment(0.0, -0.2),
+    radius: 1.0,
+    colors: [Color(0x4CB4A0FF), Color(0x33FFC878), kBgCard],
+    stops: [0.0, 0.4, 0.7],
+  ); // onboarding aura background
+
   // Shadows
   static const kShadowCard = BoxShadow(
     color: Color(0x0F000000),

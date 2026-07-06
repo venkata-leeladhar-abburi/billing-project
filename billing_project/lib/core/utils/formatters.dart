@@ -69,6 +69,11 @@ class Formatters {
     return DateFormat('dd MMM yyyy').format(dateTime);
   }
 
+  /// "10:30 AM"
+  static String formatTime(DateTime dateTime) {
+    return DateFormat('hh:mm a').format(dateTime);
+  }
+
   /// "01 Jul 2026 · 10:30 AM"
   static String formatDateTime(DateTime dateTime) {
     final date = DateFormat('dd MMM yyyy').format(dateTime);
