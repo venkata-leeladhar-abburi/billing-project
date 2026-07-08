@@ -68,6 +68,7 @@ class SectionHeader extends StatelessWidget {
                   actionLabel!,
                   style: AppTypography.body.copyWith(
                     fontSize: 13,
+                    fontWeight: FontWeight.w600, // Increased font weight
                     color: AppColors.kOrange,
                   ),
                 ),

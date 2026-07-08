@@ -23,7 +23,7 @@ class AppTypography {
 
   static const h2 = TextStyle(
     fontFamily: kFontSans,
-    fontSize: 20,
+    fontSize: 18, // Reduced from 20
     fontWeight: FontWeight.w700,
     color: AppColors.kDark,
   );

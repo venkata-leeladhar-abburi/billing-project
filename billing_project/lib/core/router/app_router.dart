@@ -1,3 +1,4 @@
+import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -137,10 +138,8 @@ class AppRouter {
       GoRoute(path: '/admin/revenue', builder: _revenueBuilder),
       GoRoute(path: '/admin/platform-settings', builder: _platformSettingsBuilder),
 
-      // Screens below own their own bottom bar (AppBottomTabBar or
-      // BottomActionBar), so they sit outside the shopkeeper ShellRoute
-      // to avoid stacking a second bottom bar underneath.
-      GoRoute(path: '/dashboard', builder: _dashboardBuilder),
+      // Screens below own their own bottom bar (like BottomActionBar),
+      // so they sit outside the shopkeeper ShellRoute.
       GoRoute(path: '/new-bill', builder: _newBillBuilder),
 
       // ── SHELL: SHOPKEEPER TAB BAR ─────────────────────────────────────
@@ -148,6 +147,7 @@ class AppRouter {
         builder: (context, state, child) =>
             _TabShell(location: state.matchedLocation, child: child),
         routes: [
+          GoRoute(path: '/dashboard', builder: _dashboardBuilder),
           GoRoute(path: '/customers', builder: _customersBuilder),
           GoRoute(path: '/settings', builder: _settingsBuilder),
         ],
@@ -512,18 +512,100 @@ class _TabShell extends StatelessWidget {
         );
 
     return Scaffold(
-      body: child,
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: currentIndex < 0 ? 0 : currentIndex,
-        type: BottomNavigationBarType.fixed,
-        selectedItemColor: AppColors.kOrange,
-        unselectedItemColor: AppColors.kMuted,
-        backgroundColor: AppColors.kBgCard,
-        onTap: (index) => context.go(tabs[index].$1),
-        items: [
-          for (final tab in tabs)
-            BottomNavigationBarItem(icon: Icon(tab.$2), label: tab.$3),
+      body: Stack(
+        children: [
+          child,
+          Positioned(
+            left: 20,
+            right: 20,
+            bottom: 12, // Absolute position, very flush to the bottom bezel
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(40),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withValues(alpha: 0.08),
+                    blurRadius: 24,
+                    offset: const Offset(0, 8),
+                  ),
+                ],
+              ),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(40),
+                child: BackdropFilter(
+                  filter: ImageFilter.blur(sigmaX: 30, sigmaY: 30), // Maximize blur
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.transparent, // Completely transparent background
+                      borderRadius: BorderRadius.circular(40),
+                      border: Border.all(
+                        color: Colors.white.withValues(alpha: 0.6), // Sharper border for glass edge reflection
+                        width: 1.2,
+                      ),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 8.0),
+                      child: Row(
+                        children: [
+                          for (var i = 0; i < tabs.length; i++)
+                            Expanded(
+                              child: _buildNavItem(
+                                context,
+                                tab: tabs[i],
+                                isSelected: (currentIndex < 0 ? 0 : currentIndex) == i,
+                                onTap: () => context.go(tabs[i].$1),
+                              ),
+                            ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
         ],
+      ),
+    );
+  }
+
+  Widget _buildNavItem(
+    BuildContext context, {
+    required (String, IconData, String) tab,
+    required bool isSelected,
+    required VoidCallback onTap,
+  }) {
+    return GestureDetector(
+      onTap: onTap,
+      behavior: HitTestBehavior.opaque,
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 250),
+        curve: Curves.easeOutCubic,
+        margin: const EdgeInsets.symmetric(horizontal: 4.0), // Avoid touching neighbors
+        padding: const EdgeInsets.symmetric(vertical: 8.0), // Let it expand naturally
+        decoration: BoxDecoration(
+          color: isSelected ? AppColors.kOrange.withValues(alpha: 0.15) : Colors.transparent,
+          borderRadius: BorderRadius.circular(30), // More rounded
+        ),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(
+              tab.$2,
+              color: isSelected ? AppColors.kOrange : AppColors.kMuted,
+              size: 24,
+            ),
+            const SizedBox(height: 4),
+            Text(
+              tab.$3,
+              style: TextStyle(
+                color: isSelected ? AppColors.kOrange : AppColors.kMuted,
+                fontWeight: isSelected ? FontWeight.w600 : FontWeight.w500,
+                fontSize: 11,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
